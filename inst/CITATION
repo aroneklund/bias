@@ -1,0 +1,11 @@
+citHeader("To cite package 'bias' in publications use:")
+
+bibentry(bibtype = 'Article',
+        title = "Correction of technical bias in clinical microarray data improves concordance with known biological information",
+        author = personList(as.person("Aron C Eklund"),
+                            as.person("Zoltan Szallasi")),
+        year = 2008,
+        journal = 'Genome Biology',
+        volume = 9,
+        pages = 'R26'
+)

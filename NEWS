@@ -1,0 +1,29 @@
+bias NEWS
+
+Changes in version 0.0.5 (2012-03-13)
+
+- Added messages for time-consuming parts of "getBiasMetrics(2)"
+- New function ".mas5calls2" which doesn't choke on newer arrays that don't have MM probes, and is also a bit faster in general
+- Add error checking to present.calls in "getBiasMetrics2" so it doesn't crash on newer platforms
+- Update CITATION file, add NAMESPACE file
+- Rename ChangeLog file to NEWS and standardize the format.
+- Replace examples using data from the "SpikeIn95" package with data from the (smaller) "affydata" package
+- No longer Suggests "SpikeIn95"
+
+
+Changes in version 0.0.4 (2008-09-09)
+
+- Removed function "plotDendroCol", which never really belonged in this package. (see "dendromat" in the "squash" package for a better implementation)
+- Added function "getBiasMetrics2", which is like "getBiasMetrics" but adds a few more metrics.
+- Added function "borders".
+
+
+Changes in version 0.0.3 (2008-02-11)
+
+- Updated "references" section to reflect publication.
+- Changed "License:" field in DESCRIPTION to match current R recommendations.
+- Fixed "unmatched right brace in ..." warnings on installation.
+- Removed "require(affy)" from a few functions.
+- Improved and expanded man pages.
+- Modified to "batchCorrection" to deal with the case in which a batch level has only one member.
+
