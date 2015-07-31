@@ -1,5 +1,15 @@
 bias NEWS
 
+Changes in version 0.0.6 (2015-07-31)
+
+- Removed Rd links to 'simpleaffy' and 'limma' packages, mostly to avoid check warnings
+- Added "stats" dependency
+- Changed the case of the package title
+- Updated maintainer email
+- Removed hidden function ".mas5calls2", whose performance gain in a modern R installation does not justify its use over the original "affy::mas5calls"
+- Adjusted "getBiasMetrics2" to call "mas5calls" rather than the ".mas5calls2"
+
+
 Changes in version 0.0.5 (2012-03-13)
 
 - Added messages for time-consuming parts of "getBiasMetrics(2)"

@@ -53,6 +53,7 @@ For the diagonals of the returned matrix, which correspond to the correlation be
   
   ## Maybe use the "squash" package for more control of the plot
   \dontrun{
+  par(mar = c(7, 4, 4, 1) + 0.1)
   map <- makecmap(cm$z, colFn = blueorange, 
             symm = TRUE, n = 20)
   colorgram(cm, map = map, 

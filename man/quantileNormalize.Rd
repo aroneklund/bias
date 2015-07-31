@@ -23,8 +23,8 @@ quantileNormalize(x, margin = 2)
 \code{margin} should be 2 for \dQuote{standard} microarray matrices in which rows = genes.
 
 }
-\seealso{ \code{\link[affy]{normalize.quantiles}} (affy package), 
-          \code{\link[limma]{normalizeQuantiles}} (limma package) 
+\seealso{ \code{\link[affy]{normalize.quantiles}} in the \pkg{affy} package, 
+          \code{normalizeQuantiles} in the \pkg{limma} package.
 }
 \examples{
   \dontrun{

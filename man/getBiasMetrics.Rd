@@ -30,7 +30,7 @@
   in clinical microarray data improves concordance with known
   biological information.  Genome Biology, 9:R26.
 }
-\seealso{ \code{\link{biasCorrection}}; also \code{\link[simpleaffy]{qc}} in the \pkg{simpleaffy} package. 
+\seealso{ \code{\link{biasCorrection}}; also \code{qc} in the \pkg{simpleaffy} package. 
 }
 \examples{
   library(affydata)

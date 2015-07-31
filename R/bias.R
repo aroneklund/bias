@@ -31,8 +31,11 @@ getBiasMetrics2 <- function(x.batch, x.rma = rma(x.batch)) {
   
   ## now the "extended" bias metrics
   message('Calculating MAS5 calls...')
-  present.calls <- apply(exprs(.mas5calls2(x.batch)) == 'P', 2, mean)
-
+  present.calls <- try(apply(exprs(mas5calls(x.batch)) == 'P', 2, mean), silent = TRUE)
+  if(class(present.calls) == "try-error") {
+    present.calls <- rep(as.numeric(NA), length(pm.median))
+  }  
+  
   ## probe-specific bias metrics 
   ## (all probe sets may not be present on all arrays -- so we use safety functions)  
   availableProbes <- featureNames(x.rma)
@@ -190,72 +193,4 @@ batchCorrection <- function(x, b) {
         out <- fixed
     }
     out
-}
-
-## modified from "mas5calls.AffyBatch" in the "affy" package
-.mas5calls2 <-
-function (object, ids = NULL, verbose = TRUE, tau = 0.015, alpha1 = 0.04, 
-    alpha2 = 0.06, ignore.saturated = TRUE) 
-{
-    if (alpha1 < 0) {
-        stop("alpha1 must be  > 0 ")
-    }
-    if (alpha1 > alpha2) {
-        stop("alpha2 must be  > alpha1 ")
-    }
-    if (alpha2 > 1) {
-        stop("alpha2 must be  <1 ")
-    }
-    if (verbose) 
-        cat("Getting probe level data...\n")
-    pms <- as.matrix(affy::pm(object))
-    mms <- as.matrix(affy::mm(object))
-    if (ignore.saturated) {
-        sat <- 46000
-    }
-    else {
-        sat <- -1
-    }
-    pns <- affy::probeNames(object)
-    o <- order(pns)
-    pns <- pns[o]
-    pms <- pms[o, , drop = FALSE]
-    mms <- mms[o, , drop = FALSE]
-    unique.pns <- sort(unique(pns))
-
-    ## what if there are no MMs?
-    if(all(is.na(mms))) {
-      calls <- matrix(NA, nrow = length(unique.pns), ncol = ncol(pms))
-      rownames(calls) <- unique.pns
-      colnames(calls) <- Biobase::sampleNames(object)
-      p <- calls
-    } else {
-      if (verbose) 
-          cat("Computing p-values\n")
-      p <- sapply(1:length(pms[1, ]), function(x) {
-          .C("DetectionPValue", as.double(pms[, x]), as.double(mms[, 
-              x]), as.character(pns), as.integer(length(mms[, x])), 
-              as.double(tau), as.double(sat), dpval = double(length(unique.pns)), 
-              length(unique.pns), PACKAGE = "affy")$dpval
-      })
-      rownames(p) <- unique.pns
-      colnames(p) <- Biobase::sampleNames(object)
-      if (verbose) 
-          cat("Making P/M/A Calls\n")
-      calls <- ifelse(p < alpha1, "P", ifelse(p < alpha2, "M", "A"))
-      calls <- matrix(calls, nrow = nrow(p), ncol = ncol(p))
-      colnames(calls) <- sampleNames(object)
-      rownames(calls) <- rownames(p)
-    }
-    if (!is.null(ids)) {
-      calls <- calls[ids, , drop = FALSE]
-      p <- p[ids, , drop = FALSE]
-    }
-    eset <- new("ExpressionSet", 
-        phenoData = Biobase::phenoData(object), 
-        experimentData = Biobase::experimentData(object), 
-        annotation = Biobase::annotation(object), 
-        protocolData = Biobase::protocolData(object), 
-        exprs = calls, se.exprs = p)
-    return(eset)
 }
