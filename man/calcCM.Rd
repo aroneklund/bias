@@ -36,7 +36,7 @@ For the diagonals of the returned matrix, which correspond to the correlation be
 \note{ 
   The results will be more informative if the input matrix \code{x} is sorted by some criterion first.  For example, try sorting by (row-wise) mean, variance, probe sequence composition...
 }
-\seealso{ \code{\link[squash]{colorgram}} in the in the \pkg{squash} package for visualization}
+\seealso{ \code{colorgram} in the in the \pkg{squash} package for visualization}
 \examples{
 
   library(affydata)

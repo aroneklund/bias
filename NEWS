@@ -2,7 +2,7 @@ bias NEWS
 
 Changes in version 0.0.6 (2015-07-31)
 
-- Removed Rd links to 'simpleaffy' and 'limma' packages, mostly to avoid check warnings
+- Removed Rd links to 'simpleaffy', 'limma', 'squash' packages, mostly to avoid check warnings
 - Added "stats" dependency
 - Changed the case of the package title
 - Updated maintainer email
