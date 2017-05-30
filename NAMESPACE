@@ -1,7 +1,6 @@
 # Export all names
 exportPattern(".")
 
-# Import all packages listed as Imports or Depends
-import(
-  affy, Biobase, stats
-)
+importFrom("stats", "IQR", "cor", "lm", "median", "residuals")
+importFrom("Biobase", "exprs", "featureNames", "sampleNames")
+importFrom("affy", "list.celfiles", "mas5calls", "pm", "rma")

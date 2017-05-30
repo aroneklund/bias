@@ -1,5 +1,10 @@
 bias NEWS
 
+Changes in version 0.0.7 (2017-05-30)
+
+- Updated/corrected dependencies and namespace
+
+
 Changes in version 0.0.6 (2015-07-31)
 
 - Removed Rd links to 'simpleaffy', 'limma', 'squash' packages, mostly to avoid check warnings

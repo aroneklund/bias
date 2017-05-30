@@ -1,10 +1,10 @@
 Package: bias
-Version: 0.0.6
-Date: 2015-07-31
+Version: 0.0.7
+Date: 2017-05-30
 Title: Visualize, Quantify, and Correct Technical Bias in Microarray Data
 Author: Aron C. Eklund
 Maintainer: Aron C. Eklund <eklund@cbs.dtu.dk>
-Depends: Biobase, affy, stats
+Imports: Biobase, affy, stats
 Suggests: affydata
 Description: Visualize, quantify, and correct technical bias in microarray data.
 License: GPL-2

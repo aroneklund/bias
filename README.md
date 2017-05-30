@@ -19,20 +19,8 @@ Installation
 
 This package is not available from CRAN.
 
-You can install the latest release (0.0.6) like this:
+You can install the latest version from GitHub like this:
 
-Source (Linux, Mac, etc.):
-
-	install.packages("http://www.cbs.dtu.dk/suppl/biascorr/bias_0.0.6.tar.gz")
-
-Windows:
-
-	install.packages("http://www.cbs.dtu.dk/suppl/biascorr/bias_0.0.6.zip")
-
-Or, you can download source or Windows binary packages here: http://www.cbs.dtu.dk/suppl/biascorr/
-
-Or, you can install the latest development version from GitHub like this:
-
-	library(devtools)
-	install_github("aroneklund/bias")
+	## install.packages("devtools")
+	devtools::install_github("aroneklund/bias")
 
